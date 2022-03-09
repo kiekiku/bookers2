@@ -1,22 +1,25 @@
+<div class="col-lg-4">
+     <h2>User info</h2>
 
-      <h2>User info</h2>
+     <div>
+      <%= image_tag user.get_profile_image(100,100) %>
+      <p>name <%= user.name %></p>
+      <p>introduction <%= user.introduction %></p>
+      <%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+        <strong><i class="fas fa-user-cog"></i></strong>
+       <% end %>
+     </div>
 
-<div>
-  <%= image_tag user.get_profile_image(100,100) %>
-  <p>name <%= user.name %></p>
-  <p>introduction </p>
-  <p><%= link_to "プロフィール編集", edit_user_path(current_user.id) %></p>
-</div>
+    <h1>New Book</h1>
 
-<h1>New Book</h1>
+    <%= form_with model:@book do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field:title %>
 
-<%= form_with model:@book do |f| %>
-<h4>Title</h4>
-<%= f.text_field:title %>
+    <h4>Opinion</h4>
+    <%= f.text_area:body %>
 
-<h4>Opinion</h4>
-<%= f.text_area:body %>
+    <%= f.submit 'Create Book' %>
 
-<%= f.submit 'Create Book' %>
- 
-<%end%>
+    <%end%>
+   </div>
