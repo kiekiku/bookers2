@@ -10,23 +10,26 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = current_user
     @book = Book.new
-    @book = Book.find(params[:id])
+    @book_detail = Book.find(params[:id])
   end
-  
+
   def create
      @book = Book.new(book_params)
+     @book.user_id = current_user.id
+
     if @book.save
       redirect_to book_path(@book.id),notice: "You have created book successfully."
     else
       @books = Book.all
       render :index
     end
-    
+
     def edit
     end
   end
-  
+
   private
   # ストロングパラメータ
   def book_params
