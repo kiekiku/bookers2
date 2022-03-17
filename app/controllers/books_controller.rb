@@ -34,6 +34,7 @@ class BooksController < ApplicationController
 
   def edit
       @book_detail = Book.find(params[:id])
+      flash[:notice] = "You have updated book successfully."
       if @book_detail.user == current_user
          render :edit
       else

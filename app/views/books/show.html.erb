@@ -1,16 +1,11 @@
+<p id="notice">
 <%= flash[:notice] %>
-<div class="container">
-    <div class="row">
-<%= render 'userinfo', user: @user %>
+</p>
 
-
-   <div class="col-lg-8">
-
-    <table class="table">
+     <%= render 'userinfo', user: @user %>
+    <div class='col-md-8 offset-md-1'>
       <h2>Book detail</h2>
-
-
-       <tbody>
+       <table class='table'>
            <tr>
             <td>
                 <%= link_to user_path(@book_detail.user.id)  do %>
@@ -20,13 +15,12 @@
             </td>
             <td><%= link_to @book_detail.title, book_path(@book_detail.id) %></td>
             <td><%= @book_detail.body %></td>
-            <% if @book_detail.user == current_user %>
+                <% if @book_detail.user == current_user %>
             <td><%= link_to "Edit", edit_book_path(@book_detail.id), class:"btn btn-sm btn-success" %></td>
             <td><%= link_to "Destroy", book_path(@book_detail),method: :delete, data: { confirm: "本当に消しますか？" }, class:"btn btn-sm btn-danger" %></td>
-            <%end%>
-
-            </tr>
-
-        </tbody>
-
-    </table>
+                <%end%>
+           </tr>
+        </table>
+    </div>
+ </div>
+</div>
