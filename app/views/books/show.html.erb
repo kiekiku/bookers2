@@ -2,7 +2,11 @@
 <%= flash[:notice] %>
 </p>
 
-     <%= render 'userinfo', user: @user %>
+<div class="col-md-3">
+      <%= render 'userinfo', user: @user %>
+</div>
+
+
     <div class='col-md-8 offset-md-1'>
       <h2>Book detail</h2>
        <table class='table'>
@@ -21,6 +25,6 @@
                 <%end%>
            </tr>
         </table>
-    </div>
- </div>
+
+
 </div>
